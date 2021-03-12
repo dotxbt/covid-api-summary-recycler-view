@@ -27,7 +27,7 @@ import org.json.JSONObject;
 
 public class MainActivity extends AppCompatActivity {
     private RecyclerView rvContainer;
-    private EditText etSeacrh;
+    private EditText etSearch;
     private ProgressBar pgBar;
     private MainAdapter adapter;
 
@@ -36,13 +36,13 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         rvContainer = findViewById(R.id.rv_container);
-        etSeacrh = findViewById(R.id.input_search);
+        etSearch = findViewById(R.id.input_search);
         pgBar = findViewById(R.id.pgbar);
         adapter = new MainAdapter(this);
         rvContainer.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
         rvContainer.setAdapter(adapter);
 
-        etSeacrh.addTextChangedListener(new TextWatcher() {
+        etSearch.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
 
@@ -91,8 +91,6 @@ public class MainActivity extends AppCompatActivity {
                 error.printStackTrace();
             }
         });
-
-        // Add the request to the RequestQueue.
         queue.add(stringRequest);
     }
 
