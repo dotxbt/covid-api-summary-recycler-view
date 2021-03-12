@@ -5,19 +5,65 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="#F5F5F5"
     tools:context=".MainActivity">
-    <EditText
-        android:id="@+id/input_search"
+    <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Search here..."
-        android:textSize="16sp"
-        android:padding="16dp"
-        android:background="@android:color/transparent"/>
-    <View
+        android:padding="13dp"
+        android:textSize="18dp"
+        android:textStyle="bold"
+        android:textColor="@color/white"
+        android:gravity="center"
+        android:text="COVID-19 SUMMARY"
+        android:background="@color/purple_700"/>
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:background="@color/design_default_color_primary"/>
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="10dp"
+        android:gravity="center_vertical"
+        android:background="@color/design_default_color_primary">
+        <EditText
+            android:id="@+id/input_search"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:hint="Search here..."
+            android:textSize="18sp"
+            android:paddingLeft="16dp"
+            android:paddingRight="16dp"
+            android:paddingBottom="10dp"
+            android:paddingTop="10dp"
+            android:background="@drawable/rounded_background"/>
+        <TextView
+            android:id="@+id/button_sort"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:minWidth="46dp"
+            android:gravity="center"
+            android:textSize="20sp"
+            android:layout_marginLeft="10dp"
+            android:textStyle="bold"
+            android:text="A-Z"
+            android:background="@drawable/rounded_background"
+            android:backgroundTint="@color/design_default_color_primary_dark"
+            android:padding="9dp"
+            android:textColor="@color/white"/>
+    </LinearLayout>
+    <TextView
+        android:id="@+id/marquee_message"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/white"
+        android:textSize="10dp"
+        android:padding="4dp"
+        android:visibility="gone"
+        android:singleLine="true"
+        android:ellipsize="marquee"
+        android:fadingEdge="horizontal"
+        android:marqueeRepeatLimit="marquee_forever"
+        android:background="#D18412"/>
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
