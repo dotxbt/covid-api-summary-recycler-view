@@ -17,6 +17,10 @@
 - Gson
 - Volley
 
+## GET Data
+
+- GET from [https://api.covid19api.com/summary](https://api.covid19api.com/summary)
+
 ## Example UI
 
 ![HELLO](example.gif)
