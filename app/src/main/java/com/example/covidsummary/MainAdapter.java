@@ -12,6 +12,7 @@ import java.util.ArrayList;
 public class MainAdapter extends RecyclerView.Adapter<MainAdapter.ModelHolder> {
     private ArrayList<ItemModel> items, dataFilter;
     private Context context;
+    private OnItemClickListener listener;
 
     public MainAdapter(Context context) {
         this.items = new ArrayList<>();
@@ -38,6 +39,10 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.ModelHolder> {
         notifyItemMoved(position, this.items.size() - 1);
     }
 
+    public void addOnItemClickListener(OnItemClickListener listener) {
+        this.listener = listener;
+    }
+
     @NonNull
     @Override
     public ModelHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -50,6 +55,10 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.ModelHolder> {
         holder.tvItemData.setText("Country : " + item.getCountry() + "\n"
                 + "Total Death : " + item.getTotalDeaths() + "\n"
                 + "Total Confirmed : " + item.getTotalConfirmed());
+
+        holder.itemView.setOnClickListener( v -> {
+            listener.onClick(item);
+        });
     }
 
     @Override
@@ -80,5 +89,9 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.ModelHolder> {
             super(itemView);
             tvItemData = itemView.findViewById(R.id.item_data);
         }
+    }
+
+    interface OnItemClickListener {
+        void onClick(ItemModel itemModel);
     }
 }

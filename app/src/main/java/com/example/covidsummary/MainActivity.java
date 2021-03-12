@@ -59,6 +59,15 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        // click item callback here
+        adapter.addOnItemClickListener(new MainAdapter.OnItemClickListener() {
+            @Override
+            public void onClick(ItemModel itemModel) {
+
+                Toast.makeText(MainActivity.this, "ITEM : " + itemModel.toString(), Toast.LENGTH_SHORT).show();
+            }
+        });
+
         // request
         requestData();
     }
