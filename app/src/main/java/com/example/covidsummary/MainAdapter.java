@@ -12,7 +12,9 @@ import java.util.ArrayList;
 public class MainAdapter extends RecyclerView.Adapter<MainAdapter.ModelHolder> {
     private ArrayList<ItemModel> items, dataFilter;
     private Context context;
-    private OnItemClickListener listener;
+    private OnItemClickListener listener = m -> {
+      // do nothing
+    };
 
     public MainAdapter(Context context) {
         this.items = new ArrayList<>();
