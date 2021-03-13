@@ -93,7 +93,6 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onRefresh() {
                 srSwipe.setRefreshing(false);
-                adapter.removeAllItems();
                 isASC = true;
                 tvTextSort.setText("A-Z");
                 requestData();
@@ -113,6 +112,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void requestData() {
+        adapter.removeAllItems();
         RequestQueue queue = Volley.newRequestQueue(this);
         String url ="https://api.covid19api.com/summary";
         pgBar.setVisibility(View.VISIBLE);
@@ -136,7 +136,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onErrorResponse(VolleyError error) {
                 pgBar.setVisibility(View.GONE);
-                Toast.makeText(MainActivity.this, error.getMessage(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(MainActivity.this, "Upss!!! Anda kurang beruntung :( :( \nPlease try again later", Toast.LENGTH_SHORT).show();
                 error.printStackTrace();
             }
         });
