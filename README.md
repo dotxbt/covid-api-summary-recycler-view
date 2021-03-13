@@ -10,7 +10,8 @@
 - Notify per item
 - Ripple item click
 - Details item wiith BottomSheetDialog
-- Swipe Layout to resfresh
+- Swipe Layout to refresh
+- Animate when scrolling recycler view
 
 ## Library
 
