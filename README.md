@@ -9,9 +9,12 @@
 - Marquee Text
 - Notify per item
 - Ripple item click
+- Details item wiith BottomSheetDialog
+- Swipe Layout to resfresh
 
 ## Library
 
+- SwipeRefreshLayout
 - RecyclerView
 - Cardview
 - Gson
