@@ -32,6 +32,12 @@ import com.google.gson.GsonBuilder;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+/**
+ * @author Sabituddin Bigbang
+ * @since 13 March 2021
+ * @apiNote Hanya untuk latihan, semoga bermanfaat
+ */
+
 public class MainActivity extends AppCompatActivity {
     private RecyclerView rvContainer;
     private EditText etSearch;

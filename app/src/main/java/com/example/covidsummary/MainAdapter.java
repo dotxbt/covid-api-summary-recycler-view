@@ -15,6 +15,12 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 
+/**
+ * @author Sabituddin Bigbang
+ * @since 13 March 2021
+ * @apiNote Simple RecyclerView Adapter
+ */
+
 public class MainAdapter extends RecyclerView.Adapter<MainAdapter.ModelHolder> {
     private ArrayList<ItemModel> items, dataFilter;
     private Context context;

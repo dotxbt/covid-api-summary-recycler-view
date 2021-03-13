@@ -4,6 +4,11 @@ import com.google.gson.annotations.SerializedName;
 
 import java.util.Date;
 
+/**
+ * @author Sabituddin Bigbang
+ * @since 13 March 2021
+ * @apiNote Model for Gson Serialiization
+ */
 public class ItemModel {
     @SerializedName("ID")
     private String id;
