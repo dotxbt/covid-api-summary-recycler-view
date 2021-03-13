@@ -5,25 +5,25 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="#F5F5F5"
+    android:background="#F0F1F3"
     tools:context=".MainActivity">
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="13dp"
-        android:textSize="18dp"
+        android:textSize="18sp"
         android:textStyle="bold"
         android:textColor="@color/white"
         android:gravity="center"
         android:text="COVID-19 SUMMARY"
-        android:background="@color/purple_700"/>
+        android:background="#47259E"/>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:padding="10dp"
+        android:padding="12dp"
         android:gravity="center_vertical"
-        android:background="@color/design_default_color_primary">
+        android:background="#5531B1">
         <EditText
             android:id="@+id/input_search"
             android:layout_width="match_parent"
@@ -31,25 +31,35 @@
             android:layout_weight="1"
             android:hint="Search here..."
             android:textSize="18sp"
+            android:layout_marginLeft="6dp"
             android:paddingLeft="16dp"
             android:paddingRight="16dp"
             android:paddingBottom="10dp"
             android:paddingTop="10dp"
             android:background="@drawable/rounded_background"/>
-        <TextView
+        <LinearLayout
             android:id="@+id/button_sort"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:minWidth="46dp"
-            android:gravity="center"
-            android:textSize="20sp"
-            android:layout_marginLeft="10dp"
-            android:textStyle="bold"
-            android:text="A-Z"
-            android:background="@drawable/rounded_background"
-            android:backgroundTint="@color/design_default_color_primary_dark"
-            android:padding="9dp"
-            android:textColor="@color/white"/>
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
+            <TextView
+                android:id="@+id/text_sort"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:textSize="20sp"
+                android:layout_marginLeft="10dp"
+                android:textStyle="bold"
+                android:text="A-Z"
+                android:padding="9dp"
+                android:textColor="@color/white"/>
+            <ImageView
+                android:layout_width="28dp"
+                android:layout_height="28dp"
+                android:src="@drawable/sort"
+                app:tint="@color/white" />
+        </LinearLayout>
     </LinearLayout>
     <TextView
         android:id="@+id/marquee_message"
@@ -63,22 +73,28 @@
         android:ellipsize="marquee"
         android:fadingEdge="horizontal"
         android:marqueeRepeatLimit="marquee_forever"
-        android:background="#D18412"/>
+        android:background="#7E31B1"/>
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_weight="1">
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rv_container"
+        <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+            android:id="@+id/swipe_refresh"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:clipToPadding="false"
-            android:padding="10dp"
+            app:barrierDirection="top"
+            app:swipeRefreshLayoutProgressSpinnerBackgroundColor="@color/purple_500"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
+            app:layout_constraintTop_toTopOf="parent" >
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_container"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:clipToPadding="false"
+                android:padding="10dp"/>
+        </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
         <ProgressBar
             android:id="@+id/pgbar"
             android:layout_width="46dp"

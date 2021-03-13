@@ -21,12 +21,13 @@
                 android:id="@+id/country"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textSize="20sp"
-                android:padding="6dp"
+                android:textSize="18sp"
+                android:padding="4dp"
+                android:layout_marginBottom="10dp"
                 android:gravity="center"
                 android:text="Country Name"
                 android:textStyle="bold"
-                android:textColor="@color/black"/>
+                android:textColor="@color/agak_purple"/>
             <View
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
@@ -49,7 +50,7 @@
                         android:id="@+id/death"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textSize="20sp"
+                        android:textSize="18sp"
                         android:text="2342424"
                         android:gravity="center"
                         android:padding="2dp"
@@ -79,12 +80,12 @@
                         android:id="@+id/confirmed"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textSize="20sp"
+                        android:textSize="18sp"
                         android:text="2342424"
                         android:gravity="center"
                         android:padding="2dp"
                         android:textStyle="bold"
-                        android:textColor="#DBAB1C"/>
+                        android:textColor="#EEBF04"/>
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -109,7 +110,7 @@
                         android:id="@+id/recovered"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textSize="20sp"
+                        android:textSize="18sp"
                         android:text="2342424"
                         android:gravity="center"
                         android:padding="2dp"

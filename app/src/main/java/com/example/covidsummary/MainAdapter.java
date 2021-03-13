@@ -4,10 +4,14 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.AlphaAnimation;
+import android.view.animation.AnimationUtils;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -16,6 +20,7 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.ModelHolder> {
     private ArrayList<ItemModel> items, dataFilter;
     private Context context;
     private boolean isASC=true;
+    private int currentTop =  -1;
     private OnItemClickListener listener = m -> {
       // do nothing
     };
@@ -65,6 +70,12 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.ModelHolder> {
         notifyDataSetChanged();
     }
 
+    public void removeAllItems() {
+        this.items = new ArrayList<>();
+        this.dataFilter = new ArrayList<>();
+        notifyDataSetChanged();
+    }
+
     public void addOnItemClickListener(OnItemClickListener listener) {
         this.listener = listener;
     }
@@ -77,11 +88,18 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.ModelHolder> {
 
     @Override
     public void onBindViewHolder(@NonNull ModelHolder holder, int position) {
+        if (position > currentTop) {
+            currentTop = position;
+            AlphaAnimation animation = new AlphaAnimation(0.0f, 1.0f);
+            animation.setDuration(300);
+            holder.itemView.startAnimation(animation);
+        }
+
         ItemModel item = this.items.get(position);
         holder.tvCountry.setText(item.getCountry());
-        holder.tvDeath.setText(String.valueOf(item.getTotalDeaths()));
-        holder.tvConfirmed.setText(String.valueOf(item.getTotalConfirmed()));
-        holder.tvRecovered.setText(String.valueOf(item.getTotalRecovered()));
+        holder.tvDeath.setText(formatNumber(item.getTotalDeaths()));
+        holder.tvConfirmed.setText(formatNumber(item.getTotalConfirmed()));
+        holder.tvRecovered.setText(formatNumber(item.getTotalRecovered()));
 
         holder.itemClick.setOnClickListener( v -> {
             listener.onClick(item);
@@ -120,6 +138,10 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.ModelHolder> {
             tvConfirmed = itemView.findViewById(R.id.confirmed);
             tvRecovered = itemView.findViewById(R.id.recovered);
         }
+    }
+
+    private String formatNumber(int number) {
+        return String.format("%,d",number).replace(',', '.');
     }
 
     interface OnItemClickListener {
